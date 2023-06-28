@@ -23,7 +23,7 @@ do {
 } while ($bottles > 2);
 
 /*
-*This can also be done inside a for loop, but looks ugly and can be done more efficiently
+//This can also be done inside a for loop, but looks ugly and can be done more efficiently
 for (;$bottles > 2; $bottles--) {
     //replace our template values with bottle values
     $modified_line = str_replace("old_value", $bottles, $line);
@@ -33,13 +33,17 @@ for (;$bottles > 2; $bottles--) {
     echo $modified_line;
 }
 
-*Using a foreach loop with the range function will give the same output, but wont be able to decrement the value for outside of the forloop scope
+//Using a foreach loop with the range function will give the same output, but wont be able to decrement the value for outside of the forloop scope
 foreach (range($bottles, 3) as $current_bottle) {
-
+    //replace our template values with bottle values
+    $modified_line = str_replace("old_value", $current_bottle, $line);
+    $modified_line = str_replace("new_value", $current_bottle - 1, $modified_line);
+    
+    //echo out the modified line
+    echo $modified_line;
 }
-
+*Outside of the foreach scope, the $bottles variable holds 99 as decrement changes happen inside the locale_compose
 */
-
 
 //modify the last 2 bottles, 1 bottle should not be plural
 $modified_line = str_replace("old_value", "$bottles", $line);
