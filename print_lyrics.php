@@ -33,7 +33,7 @@ for (;$bottles > 2; $bottles--) {
     echo $modified_line;
 }
 
-*Using a foreach loop with the range function will give the same output, but wont be able to decrement the value
+*Using a foreach loop with the range function will give the same output, but wont be able to decrement the value for outside of the forloop scope
 foreach (range($bottles, 3) as $current_bottle) {
 
 }
